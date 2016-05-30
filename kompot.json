@@ -1,0 +1,46 @@
+{
+  "general": {
+    "apipassword": "mypassword",
+    "apiusername": "idmTransportUser",
+    "credentials": {
+      "password": "mypassword",
+      "username": "consumer"
+    },
+    "host": "192.168.1.1:8444",
+    "tenantName": "CSA_CONSUMER"
+  },
+  "orders": [
+    {
+      "deployedProperties": {
+        "hostName": "test4@rslab.local",
+        "joinedDomain": true
+      },
+      "name": "test cloud server",
+      "offeringName": "TSS Cloud Server v1.0",
+      "offeringVersion": "1.0.1",
+      "serviceOptions": {
+        "disk": "0",
+        "failFlow": "false",
+        "hostName": "test4@rslab.local",
+        "memory": "1024",
+        "nCPU": "2",
+        "osType": "RedHat 7"
+      },
+      "subscriptionPrefix": "test_"
+    },
+    {
+      "name": "test cloud server2",
+      "offeringName": "TSS Cloud Server v1.0",
+      "offeringVersion": "1.0.0",
+      "serviceOptions": {
+        "disk": "0",
+        "failFlow": "true",
+        "hostName": "test4@rslab.local",
+        "memory": "1024",
+        "nCPU": "2",
+        "osType": "RedHat 7"
+      },
+      "subscriptionPrefix": "test_"
+    }
+  ]
+}
