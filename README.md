@@ -1,9 +1,9 @@
 # Kompot
-Kompot is tool for subscribing to Cloud Service Automation (https://en.wikipedia.org/wiki/HP_Cloud_Service_Automation_Software) offers. It was designed to be run from command line, and be used from CI tools like Jenkins.
+Kompot is a tool for subscribing to [Cloud Service Automation](https://en.wikipedia.org/wiki/HP_Cloud_Service_Automation_Software) offers. It was designed to be run from command line, and be used from CI tools like Jenkins. It's original purpose was to run offers tests when building new oo content packs that deploy csa services.
 
 # Current state
 
-Kompot is in alpha stage, currently only able to subscribe to a service, and either fail or succeed, depending on the success of the subscription.
+Kompot is in **alpha stage**, currently only able to subscribe to a service, and either fail or succeed, depending on the success of the subscription. It cancels the subscription after its done and if delete options is provided, can also delete them.
 
 # Options
 ```
@@ -29,6 +29,19 @@ optional arguments:
                         Folder to print instance document
 
 ```
+
+- quiet - By default Kompot prints detailed logs in both logfile and console. The quiet option will suppress stdout messages.
+- outputfolder - that is the folder, where the test results will be stored. it is not used currently
+- delay - that option is used to not flood csa with numerous api calls. It is used for odering and canceling services, and is the time to wait between the api calls. Defaults to 15 seconds.
+- heartbeat - when orders are requested, Kompot will wait until the requests either fail or are online. The heartbeat defines on what intervals Kompot will check what is the current status of it's subscriptions. Defaults to 120 seconds.
+- timeout - How long kompot should wait for subscription to fail or succeed, before it gives up. Note, that still running subscriptions that timeout will be ignored from the final result and manual cleanup should be attempted. Defaults to 3600 seconds(1h).
+- delete  - if that option is specified, subscriptions that have been active or failed will be deleted after they are canceled.
+- exitonfail - if that option is specified, script will exit at the end with a non-zero status if any of the orders had failed
+- trustcert - trust the ssl certificates, usefull with self-signed ones
+- loglevel - defines the verbosity of the logs. Info provides information about what is currently going on, while DEBUG prints very detailed requests and reponses, very usefull with identifying issues.
+
+The rest are self-explanatory.
+
 #Config file
 
 The configfile can be either in json or yaml format. It includes 2 objects. General, where the url for the csa service, api and consumer information is defined, and the orders, that contains an array of objects where information about the orders we want to make resides.
