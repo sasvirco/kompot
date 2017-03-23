@@ -42,11 +42,11 @@ optional arguments:
 
 The rest are self-explanatory.
 
-#Config file
+# Config file
 
 The configfile can be either in json or yaml format. It includes 2 objects. General, where the url for the csa service, api and consumer information is defined, and the orders, that contains an array of objects where information about the orders we want to make resides.
 
-###Example in yaml 
+### Example in yaml 
 
 ```
 ---
@@ -88,8 +88,8 @@ The configfile can be either in json or yaml format. It includes 2 objects. Gene
         nCPU: "2"
 ```
 
-#Configuration options
-##General 
+# Configuration options
+## eneral 
 - host - hostname and port (TODO: change it to separate entries for protocol, host and port)
 - apiusername - the username used to connect to the consumer api
 - apipassword  - the password for the user used to connect to the consumer api
@@ -106,7 +106,7 @@ The configfile can be either in json or yaml format. It includes 2 objects. Gene
 - serviceOptions - list of names and values of the subscriber options we want to supply to the offer. The internal names of the subscriber options are used.
 - deployedProperties - list of properties and values, we want to assert after succesfull subscription. Not used currently and subject of change
 
-#future state
+# future state
 
 The following features are considered for next releases
 - produce a report file, similar to Junit
