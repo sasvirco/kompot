@@ -48,7 +48,7 @@ The configfile can be either in json or yaml format. It includes 2 objects. Gene
 
 ### Example in yaml 
 
-```
+```yaml
 ---
   general: 
     host: "10.10.0.11:8444"
